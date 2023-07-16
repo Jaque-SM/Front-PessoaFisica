@@ -44,10 +44,10 @@ class ListPersons extends Component {
     render() {
         return (
             <div>
-                <h2 className="text-center">Person  List</h2>
+                <h2 className="text-center">Person List</h2>
 
                 <div className="row">
-                    <button className="btn btn-primary" onClick={this.addPessoaFisica}> Add Pessoa</button>
+                    <button className="btn btn-primary" onClick={this.addPessoaFisica}>Add Pessoa</button>
                 </div>
                 <br></br>
                 <div className="row">
@@ -68,13 +68,14 @@ class ListPersons extends Component {
                                 this.state.pessoas.map(
                                     pessoa =>
                                         <tr key={pessoa.id}>
-                                            <td> {pessoa.firstName} </td>
-                                            <td> {pessoa.lastName}</td>
-                                            <td> {pessoa.emailId}</td>
+                                            <td> {pessoa.nome} </td>
+                                            <td> {pessoa.cpf}</td>
+                                            <td> {pessoa.telefone}</td>
+                                            <td> {pessoa.email}</td>
                                             <td>
-                                                <button onClick={() => this.editEmployee(pessoa.id)} className="btn btn-info">Update </button>
-                                                <button style={{ marginLeft: "10px" }} onClick={() => this.deleteEmployee(pessoa.id)} className="btn btn-danger">Delete </button>
-                                                <button style={{ marginLeft: "10px" }} onClick={() => this.viewEmployee(pessoa.pessoaNome)} className="btn btn-info">View </button>
+                                                <button onClick={() => this.editEmployee(pessoa.id)} className="btn btn-info">Update</button>
+                                                <button style={{ marginLeft: "10px" }} onClick={() => this.deletePessoaFisica(pessoa.id)} className="btn btn-danger">Delete </button>
+                                                <button style={{ marginLeft: "10px" }} onClick={() => this.viewPessoaFisica(pessoa.pessoaNome)} className="btn btn-info">View </button>
                                             </td>
                                         </tr>
                                 )
@@ -94,3 +95,4 @@ class ListPersons extends Component {
 
 
 }
+export default ListPersons
