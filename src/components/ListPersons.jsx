@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import PersonService from '../services/PersonService';
 
-class ListPersons extends Component {
-
+class ListPersons extends React.Component {
+    
+    
     constructor(props) {
         super(props)
 
