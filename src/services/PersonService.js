@@ -10,12 +10,12 @@ class PersonService {
 
     }
 
-    createPessoaFisica(){
-        return axios.post(PERSON_API_BASE_URL);
+    createPessoaFisica(pessoa){
+        return axios.post(PERSON_API_BASE_URL, pessoa );
     }
 
     getPessoaFisicaByNome(PessoaNome){
-        return axios.get(PERSON_API_BASE_URL + "/"+ PessoaNome);
+        return axios.get(PERSON_API_BASE_URL + '/'+ PessoaNome);
     }
 
     updatePessoaFisica(pessoaId, PessoaFisica){
@@ -25,6 +25,7 @@ class PersonService {
     deletePessoaFIsica(pessoaId){
         return axios.delete(PERSON_API_BASE_URL +'/'+pessoaId);
     }
+    
 
 }
 export default new PersonService()

@@ -70,11 +70,11 @@ class CreatePerson extends Component {
     }
 
     changeTelefonePessoaHander = (event) => {
-        this.setState({ telefone: event.target.telefone });
+        this.setState({ telefone: event.target.value });
     }
 
     changeEmailPessoaHandler = (event) => {
-        this.setState({ email: event.target.email });
+        this.setState({ email: event.target.value });
     }
 
     cancel() {
@@ -127,7 +127,7 @@ class CreatePerson extends Component {
                             </div>
                         
 
-                        <button className="btn btn-success" onClick={this.saveOrUpdatePessoaFisica}>Save</button>
+                        <button className="btn btn-success" onClick={this.saveOrUpdatePessoaFisica.bind(this)}>Save</button>
                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>    
                         </form>
 

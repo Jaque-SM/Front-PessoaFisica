@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import PersonService from '../services/PersonService';
+import { withRouter, useHistory } from 'react-router-dom';
 
 class ListPersons extends React.Component {
     
-    
+
     constructor(props) {
         super(props)
 
@@ -13,7 +14,6 @@ class ListPersons extends React.Component {
         this.addPessoaFisica = this.addPessoaFisica.bind(this);
         this.editPessoaFisica = this.editPessoaFisica.bind(this);
         this.deletePessoaFisica = this.deletePessoaFisica.bind(this);
-
     }
 
     deletePessoaFisica(id) {
@@ -40,6 +40,7 @@ class ListPersons extends React.Component {
 
     addPessoaFisica() {
         this.props.history.push('/add-pessoa/_add');
+        
     }
 
     render() {
@@ -48,10 +49,10 @@ class ListPersons extends React.Component {
                 <h2 className="text-center">Person List</h2>
 
                 <div className="row">
-                    <button className="btn btn-primary" onClick={this.addPessoaFisica}>Add Pessoa</button>
+                    <button className="btn btn-primary" style={{marginRight: "10px"}} onClick={this.addPessoaFisica.bind(this)}>Add Pessoa</button>
                 </div>
                 <br></br>
-                <div className="row">
+                <div className="row" history='profiles'>
                     <table className="table table-striped table-bordered">
 
                         <thead>
@@ -74,7 +75,7 @@ class ListPersons extends React.Component {
                                             <td> {pessoa.telefone}</td>
                                             <td> {pessoa.email}</td>
                                             <td>
-                                                <button onClick={() => this.editEmployee(pessoa.id)} className="btn btn-info">Update</button>
+                                                <button onClick={() => this.editPessoaFisica(pessoa.id)} className="btn btn-info">Update</button>
                                                 <button style={{ marginLeft: "10px" }} onClick={() => this.deletePessoaFisica(pessoa.id)} className="btn btn-danger">Delete </button>
                                                 <button style={{ marginLeft: "10px" }} onClick={() => this.viewPessoaFisica(pessoa.pessoaNome)} className="btn btn-info">View </button>
                                             </td>
@@ -96,4 +97,4 @@ class ListPersons extends React.Component {
 
 
 }
-export default ListPersons
+export default withRouter(ListPersons);
