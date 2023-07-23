@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PersonService from '../services/PersonService'
+
 
 class ViewPerson extends Component {
 
