@@ -26,7 +26,7 @@ export default function ListPersons() {
         <div>
             <h2 className="text-center">Person List</h2>
 
-            <Link className='btn btn-outline-dark background-grey' to="/add-pessoa">Add Pessoa-Fisica</Link>
+            <Link className='btn btn-outline-dark background-grey' to="/addpessoa">Add Pessoa-Fisica</Link>
                 
             <br></br>
 
