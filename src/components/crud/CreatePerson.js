@@ -29,42 +29,48 @@ export default function CreatePerson () {
         
 
         return (
-            <div>
-                <br></br>
                 <div className="container">
-                    <div className="card col-md-6 offset-md-3 offset-md-3">
+                    <div className="row">
                        
-                        <div className="card-body">
+                        <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
+                        <h2 className="text-center m-4">Registro</h2>
+                        <h5>
+                        Pessoa Física
+                        </h5>
 
                             <form onSubmit={(e)=> onSubmit(e)}>
-                            <div className="form-group">
-                                <label>Nome: </label>
+                            <div className="mb-3">
+                                <label htmlFor="Name" className="form-label">Nome: </label>
                                 <input type='text' placeholder="nome" name="nome" className="form-control"
                                     value={nome} onChange={(e) => onInputChange(e)} />
                             </div>
 
-                            <div className="form-group">
+                            <div className="mb-3">
                                 <label>CPF: </label>
                                 <input placeholder="cpf" name="cpf" className="form-control"
-                                    value={this.state.cpf} onChange={this.changeCpfPessoaHandler} />
+                                    value={cpf} onChange={(e) => onInputChange(e)} />
                             </div>
 
-                            <div className="form-group">
+                            <div className="mb-3">
                                 <label>Telefone: </label>
                                 <input placeholder="telefone" name="telefone" className="form-control"
-                                    value={this.state.telefone} onChange={this.changeTelefonePessoaHander} />
+                                    value={telefone} onChange={(e) => onInputChange(e)} />
                             </div>
 
 
-                            <div className="form-group">
+                            <div className="mb-3">
                                 <label>Email: </label>
                                 <input placeholder="email" name="email" className="form-control"
-                                    value={this.state.email} onChange={this.changeEmailPessoaHandler} />
+                                    value={email} onChange={(e) => onInputChange(e)} />
                             </div>
                         
 
-                        <button className="btn btn-success" onClick={this.saveOrUpdatePessoaFisica.bind(this)}>Save</button>
-                        <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>    
+                        <button type='submit' className="btn btn-outline-primary" >Save</button>
+
+                        <Link className="btn btn-outline-danger mx-2" to="/">
+                            Cancel
+                        </Link>
+
                         </form>
 
                         </div>
@@ -73,7 +79,7 @@ export default function CreatePerson () {
 
                 </div>
 
-            </div>
+         
 
         );  
 
