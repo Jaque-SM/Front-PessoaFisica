@@ -26,6 +26,7 @@ export default function UpdatePerson() {
         loadingPessoas();
     }, []);
 
+    
 
     const onSubmit = (e) => {
         e.preventDefault();

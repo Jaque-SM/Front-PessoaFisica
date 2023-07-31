@@ -12,13 +12,13 @@ export default function ListPersons() {
         loadingPessoas();
     }, []);
 
-    const loadingPessoas = () => {
-        const result = axios.get("http://localhost:8080/pessoas");
+    const loadingPessoas = async () => {
+        const result = await axios.get("http://localhost:8080/api/pessoas");
         setPessoas(result.data);
     }
 
-    const deletePerson = () => {
-        axios.delete(`http://localhost:8080/pessoa/${id}`);
+    const deletePerson = async () => {
+        await axios.delete(`http://localhost:8080/api/pessoa/${id}`);
         loadingPessoas();
     }
 
@@ -57,7 +57,8 @@ export default function ListPersons() {
                                         <Link className='btn btn-primary mx-2' to={`/viewpessoa/${pessoa.id}`}>
                                             View Person
                                         </Link>
-
+                                    </td>
+                                    <td>
                                         <button
                                             className="btn btn-danger mx-2"
                                             onClick={() => deletePerson(pessoa.id)}

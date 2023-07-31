@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
+    
 export default function CreatePerson () {
     
     let navigate = useNavigate();
@@ -22,12 +23,11 @@ export default function CreatePerson () {
 
         const onSubmit = (e) => {
             e.preventDefault();
-            axios.post("http://localhost:8080/pessoa", pessoa);
+            axios.post("http://localhost:8080/api/pessoa", pessoa);
             navigate("/");
 
         };
         
-
         return (
                 <div className="container">
                     <div className="row">
@@ -39,39 +39,42 @@ export default function CreatePerson () {
                         </h5>
 
                             <form onSubmit={(e)=> onSubmit(e)}>
-                            <div className="mb-3">
-                                <label htmlFor="Name" className="form-label">Nome: </label>
-                                <input type='text' placeholder="nome" name="nome" className="form-control"
-                                    value={nome} onChange={(e) => onInputChange(e)} />
-                            </div>
+                            
+                                <label htmlFor="nome" className="form-label">Nome: </label>
+
+                                <input type="text" placeholder="digite o nome..." name="nome" className="form-control"
+                                    value={nome} onChange={(e) => onInputChange(e.target.value)}/>
+                          
 
                             <div className="mb-3">
-                                <label>CPF: </label>
-                                <input placeholder="cpf" name="cpf" className="form-control"
+                                <label htmlFor="CPF" className="form-label">CPF: </label>
+                                <input placeholder="digite o cpf..." name="cpf" className="form-control"
                                     value={cpf} onChange={(e) => onInputChange(e)} />
                             </div>
 
                             <div className="mb-3">
                                 <label>Telefone: </label>
-                                <input placeholder="telefone" name="telefone" className="form-control"
+                                <input placeholder="digite o telefone..." name="telefone" className="form-control"
                                     value={telefone} onChange={(e) => onInputChange(e)} />
                             </div>
 
 
                             <div className="mb-3">
                                 <label>Email: </label>
-                                <input placeholder="email" name="email" className="form-control"
+                                <input placeholder="digite o email..." name="email" className="form-control"
                                     value={email} onChange={(e) => onInputChange(e)} />
                             </div>
-                        
+                       
 
-                        <button type='submit' className="btn btn-outline-primary" >Save</button>
+                        <button type="submit" className="btn btn-outline-primary" >Save</button>
 
                         <Link className="btn btn-outline-danger mx-2" to="/">
                             Cancel
                         </Link>
 
                         </form>
+
+                        
 
                         </div>
   
