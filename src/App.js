@@ -17,14 +17,13 @@ function App() {
         <div className="container">
           <Routes>
             <Route exact path="/" element = {<ListPersons/>}></Route>
-            <Route path="/pessoas" element ={<ListPersons/>}></Route>
-            <Route path="/addpessoa" element={<CreatePerson/>}></Route>
+            <Route exact path="/pessoas" element = {<ListPersons/>}></Route>
+            <Route path="/addpessoa" element= {<CreatePerson/>}></Route>
             <Route path="/updatepessoa/:id" element={<UpdatePerson/>}></Route>
             <Route path="/viewuser/:id" element={<ViewPerson/>}></Route>
           </Routes>
         </div>
-
-        <FooterComponent />
+        <FooterComponent/>
       </Router>
 
 
