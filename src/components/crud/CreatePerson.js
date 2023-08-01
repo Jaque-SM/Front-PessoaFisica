@@ -18,12 +18,32 @@ export default function CreatePerson () {
         const {nome, cpf, telefone, email } = pessoa;
 
         const onInputChange = (e) => {
-            setPessoas({ ...pessoa, [e.target.nome]: e.target.value });
+            setPessoas(
+                { ...pessoa, nome: e.target.value  })
         };
+
+        const onInputChangeCpf =(e) => {
+            setPessoas (
+                {...pessoa, cpf: e.target.value }
+            )
+        }
+
+        const onInputChangeTelefone =(e) => {
+            setPessoas (
+                {...pessoa, telefone: e.target.value}
+            )
+        }
+
+        const onInputChangeEmail =(e) => {
+            setPessoas (
+                {...pessoa, email: e.target.value}
+            )
+        }
+
 
         const onSubmit = (e) => {
             e.preventDefault();
-            axios.post("http://localhost:8080/api/pessoa", pessoa);
+            axios.post("http://localhost:8080/api/pessoas", pessoa);
             navigate("/");
 
         };
@@ -43,26 +63,27 @@ export default function CreatePerson () {
                                 <label htmlFor="nome" className="form-label">Nome: </label>
 
                                 <input type="text" placeholder="digite o nome..." name="nome" className="form-control"
-                                    value={nome} onChange={(e) => onInputChange(e.target.value)}/>
+                                  value={nome} onChange={(e) => onInputChange(e)}/>
                           
 
                             <div className="mb-3">
                                 <label htmlFor="CPF" className="form-label">CPF: </label>
                                 <input placeholder="digite o cpf..." name="cpf" className="form-control"
-                                    value={cpf} onChange={(e) => onInputChange(e)} />
+                                    value={cpf} onChange={(e) => onInputChangeCpf(e)} />
                             </div>
 
                             <div className="mb-3">
                                 <label>Telefone: </label>
-                                <input placeholder="digite o telefone..." name="telefone" className="form-control"
-                                    value={telefone} onChange={(e) => onInputChange(e)} />
+                                <input type='tel' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'  maxlength="12"
+                                placeholder="digite o telefone..." name="telefone" className="form-control"
+                                    value={telefone} onChange={(e) => onInputChangeTelefone(e)} />
                             </div>
 
 
                             <div className="mb-3">
                                 <label>Email: </label>
-                                <input placeholder="digite o email..." name="email" className="form-control"
-                                    value={email} onChange={(e) => onInputChange(e)} />
+                                <input type='email'   placeholder="digite o email..." name="email" className="form-control"
+                                    value={email} onChange={(e) => onInputChangeEmail(e)} />
                             </div>
                        
 
