@@ -12,20 +12,21 @@ export default function ViewPerson() {
 
     });
 
-    const { nome } = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
         loadingPessoa();
     }, []);
 
     const loadingPessoa = async () => {
-        const result = await axios.get(`http://localhost:8080/api/pessoas/${nome}`);
+        const result = await axios.get(`http://localhost:8080/api/pessoas/${id}`);
         setPessoas(result.data);
     }
 
     return (
         <div className="container">
             <div className="row">
+                <br></br>
                 <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
                     <h2 className="text-center m-4">Person Details</h2>
 
@@ -55,7 +56,7 @@ export default function ViewPerson() {
                         </div>
                     </div>
                     <Link className="btn btn-primary my-2" to={"/"}>
-                        Back to PersonList
+                        Voltar para Lista
                     </Link>
                 </div>
             </div>
