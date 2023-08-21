@@ -6,8 +6,6 @@ export default function ListPersons() {
 
     const [pessoas, setPessoas] = useState([]);
 
-    const { id } = useParams();
-
     useEffect(() => {
         loadingPessoas();
     }, []);
@@ -15,17 +13,12 @@ export default function ListPersons() {
     const loadingPessoas = async () => {
         const result = await axios.get("http://localhost:8080/api/pessoas");
         setPessoas(result.data);
-    }
+    };
     
-    const deletePerson = async () => {
+    const deletePerson = async (id) => {
         await axios.delete(`http://localhost:8080/api/pessoa/${id}`);
-        setPessoas (
-            pessoas.filter ((pessoa) => {
-                return pessoa.id !== id;
-            })
-        )
         loadingPessoas();
-    }
+    };
 
     return (
         <div>
