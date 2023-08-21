@@ -62,28 +62,29 @@ export default function CreatePerson () {
                             
                                 <label htmlFor="nome" className="form-label">Nome: </label>
 
-                                <input type="text" placeholder="digite o nome..." name="nome" className="form-control"
+                                <input type="text" placeholder="digite o nome..." name="nome" className="form-control" required
                                   value={nome} onChange={(e) => onInputChange(e)}/>
                           
 
                             <div className="mb-3">
                                 <label htmlFor="CPF" className="form-label">CPF: </label>
+
                                 <input placeholder="digite o cpf..." name="cpf" className="form-control"
-                                    value={cpf} onChange={(e) => onInputChangeCpf(e)} />
+                                   required value={cpf} onChange={(e) => onInputChangeCpf(e)} />
                             </div>
 
                             <div className="mb-3">
                                 <label>Telefone: </label>
                                 <input type='tel' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'  maxlength="12"
                                 placeholder="digite o telefone..." name="telefone" className="form-control"
-                                    value={telefone} onChange={(e) => onInputChangeTelefone(e)} />
+                                  required  value={telefone} onChange={(e) => onInputChangeTelefone(e)} />
                             </div>
 
 
                             <div className="mb-3">
                                 <label>Email: </label>
                                 <input type='email'   placeholder="digite o email..." name="email" className="form-control"
-                                    value={email} onChange={(e) => onInputChangeEmail(e)} />
+                                  required  value={email} onChange={(e) => onInputChangeEmail(e)} />
                             </div>
                        
 
