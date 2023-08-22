@@ -56,18 +56,29 @@ export default function ListPersons() {
                                             View Person
                                         </Link>
 
+                                        <Link className='btn btn-primary mx-0' to={`/addadress/${pessoa.id}`}>
+                                            Add Adress
+                                        </Link>
+
+
                                         <Link className='btn btn-primary mx-2' to={`/updatepessoa/${pessoa.id}`}>
                                             Update Person
                                         </Link>
+
+                                        
                                  
                                         <button
-                                            className="btn btn-danger mx-2"
-                                            onClick={() => deletePerson(pessoa.id)}
-                                        >
+                                            className="btn btn-danger mx-1"
+                                            onClick={() => deletePerson(pessoa.id)}>
+                                        
                                             Delete Person
                                         </button>
+                               
 
                                     </td>
+                                    
+                                 
+
                                 </tr>
                             )
                             )

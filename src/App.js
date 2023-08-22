@@ -7,6 +7,7 @@ import ListPersons from './components/crud/ListPersons';
 import CreatePerson from './components/crud/CreatePerson';
 import ViewPerson from './components/crud/ViewPerson';
 import UpdatePerson from './components/crud/EditPerson';
+import CreateAdress from './components/crud/AddAdress';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
             <Route exact path="/pessoas" element = {<ListPersons/>}></Route>
             <Route path="/addpessoa" element= {<CreatePerson/>}></Route>
             <Route path="/viewpessoa/:id" element={<ViewPerson/>}></Route>
+            <Route path="/addadress/:id" element={<CreateAdress/>}></Route>
             <Route path="/updatepessoa/:id" element={<UpdatePerson/>}></Route>
           </Routes>
         </div>
