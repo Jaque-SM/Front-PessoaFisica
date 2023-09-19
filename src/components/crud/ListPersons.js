@@ -51,9 +51,9 @@ export default function ListPersons() {
                                     <td> {pessoa.cpf}</td>
                                     <td> {pessoa.telefone}</td>
                                     <td> {pessoa.email}</td>
-                                    <td>
+                                    <td scope='row'>
                                         <Link className='btn btn-primary mx-2' to={`/viewpessoa/${pessoa.id}`}>
-                                            View Person
+                                            View Details
                                         </Link>
 
                                         <Link className='btn btn-primary mx-0' to={`/addadress/${pessoa.id}`}>
@@ -61,12 +61,10 @@ export default function ListPersons() {
                                         </Link>
 
 
-                                        <Link className='btn btn-primary mx-2' to={`/updatepessoa/${pessoa.id}`}>
+                                        <Link  className='btn btn-primary mx-2' to={`/updatepessoa/${pessoa.id}`}>
                                             Update Person
                                         </Link>
 
-                                        
-                                 
                                         <button
                                             className="btn btn-danger mx-1"
                                             onClick={() => deletePerson(pessoa.id)}>
